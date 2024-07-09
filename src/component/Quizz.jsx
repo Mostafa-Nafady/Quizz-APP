@@ -1,9 +1,9 @@
 import { useState } from "react";
-
+import { Questions } from "./Questions";
 function Quizz() {
-  const QUESTIONS_ARRAY = ["Ques1", "QUESTION2", "QUestion3"];
-  const [currentQuestion, setCurrentQuestion] = useState(QUESTIONS_ARRAY[0]);
-  const [remainQuestions, setRemainQuestions] = useState(QUESTIONS_ARRAY);
+  //   const QUESTIONS_ARRAY = ["Ques1", "QUESTION2", "QUestion3"];
+  const [currentQuestion, setCurrentQuestion] = useState(Questions[0].text);
+  const [remainQuestions, setRemainQuestions] = useState(Questions);
   const [answers, setAnswers] = useState("Array of answers ");
 
   function HandelSubmit() {
@@ -11,9 +11,9 @@ function Quizz() {
     /*go to the next Question */
     setRemainQuestions((prev) => {
       const updatedQuestionsArray = prev.filter(
-        (ques, idx) => ques !== currentQuestion
+        (ques, idx) => ques.text !== currentQuestion
       );
-      if (prev.length) setCurrentQuestion(updatedQuestionsArray[0]);
+      if (prev.length) setCurrentQuestion(updatedQuestionsArray[0].text);
       return updatedQuestionsArray;
     });
 

@@ -92,7 +92,23 @@ function Quizz() {
           </div>
         </div>
       ) : (
-        <p>the End Of Ques</p>
+        <div>
+          <p>the End Of Ques</p>
+          {AnswersArray &&
+            AnswersArray.map((ans) => {
+              return (
+                <div key={ans.quesId}>
+                  <span style={{ color: "yellow" }}>{`question:`}</span>{" "}
+                  <span style={{ color: "red" }}>{`${ans.quesId}`} </span>
+                  <span style={{ color: "black", margin: "0px 5px" }}>
+                    {" "}
+                    {`your Answer:`}{" "}
+                    <span style={{ color: "red" }}>{`${ans.Ans}`}</span>
+                  </span>
+                </div>
+              );
+            })}
+        </div>
       )}
       {remainQuestions.length ? (
         <button

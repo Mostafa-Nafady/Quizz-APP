@@ -68,7 +68,7 @@ function Quizz() {
       {remainQuestions.length ? (
         <div>
           <p>{currentQuestion.text}</p>
-          <div className="flex">
+          <div className="flex justify-end">
             {currentQuestion.answers &&
               currentQuestion.answers.map((answer, idx) => {
                 return (
@@ -94,7 +94,20 @@ function Quizz() {
       ) : (
         <p>the End Of Ques</p>
       )}
-      <button onClick={HandelSubmit}>Submit</button>
+      {remainQuestions.length ? (
+        <button
+          onClick={HandelSubmit}
+          style={{
+            backgroundColor: "white",
+            color: "black",
+            width: "100px",
+            marginTop: "10px",
+            borderRadius: "4px",
+          }}
+        >
+          Submit
+        </button>
+      ) : null}
     </div>
   );
 }
